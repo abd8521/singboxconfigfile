@@ -74,13 +74,30 @@
     {
       "tag": "📌 主要节点",
       "type":"selector",
-      "outbounds": ["{all}"]
+      "outbounds":[
+        "♻️ 自动选择",
+        "🚀 手动切换"
+      ],
+      "default": "🚀 手动切换"
+    },
+    {
+      "tag": "🚀 手动切换",
+      "type":"selector",
+      "outbounds":["{all}"]
+    },
+    {
+      "tag": "♻️ 自动选择",
+      "type": "urltest",
+      "outbounds":["{all}"],
+      "url": "http://www.gstatic.com/generate_204"
     },
     {
       "tag":"GLOBAL",
       "type":"selector",
       "outbounds":[ 
         "📌 主要节点",
+        "♻️ 自动选择",
+        "🚀 手动切换",
         "🎯 直连访问"
       ]
     },
