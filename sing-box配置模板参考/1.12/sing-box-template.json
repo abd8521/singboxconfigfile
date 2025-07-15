@@ -5,13 +5,12 @@
         "tag": "google",
         "type": "https",
         "server": "8.8.8.8",
-        "detour": "手动选择"
+        "detour": "📌 主要节点"
       },
       {
         "tag": "ali",
         "type": "https",
-        "server": "223.5.5.5",
-        "detour": "direct"
+        "server": "223.5.5.5"
       },
       {
         "tag": "fakeip",
@@ -73,7 +72,7 @@
   ],
   "outbounds": [
     {
-      "tag": "手动选择",
+      "tag": "📌 主要节点",
       "type":"selector",
       "outbounds": ["{all}"]
     },
@@ -81,13 +80,13 @@
       "tag":"GLOBAL",
       "type":"selector",
       "outbounds":[ 
-        "手动选择",
-        "direct"
+        "📌 主要节点",
+        "🎯 直连访问"
       ]
     },
     {
       "type": "direct",
-      "tag": "direct"
+      "tag": "🎯 直连访问"
     }
   ],
   "route": {,
@@ -96,14 +95,14 @@
       "server": "ali",
       "strategy": "prefer_ipv4"
     },
-    "final": "手动选择",
+    "final": "📌 主要节点",
     "rules": [
       {"action": "sniff", "timeout": "1s"},
       {"protocol": "dns", "action": "hijack-dns"},
-      {"ip_is_private": true, "outbound": "direct"},
-      {"clash_mode": "direct", "outbound": "direct"},
+      {"ip_is_private": true, "outbound": "🎯 直连访问"},
+      {"clash_mode": "direct", "outbound": "🎯 直连访问"},
       {"clash_mode": "global", "outbound": "GLOBAL"},
-      {"rule_set": ["geolocation-cn"], "outbound": "direct"},
+      {"rule_set": ["geolocation-cn"], "outbound": "🎯 直连访问"},
       {
         "type": "logical",
         "mode": "and",
@@ -118,7 +117,7 @@
         ],
         "action": "resolve"
       },
-      {"rule_set": ["geoip-cn"], "outbound": "direct"}
+      {"rule_set": ["geoip-cn"], "outbound": "🎯 直连访问"}
     ],
     "rule_set": [
       {
@@ -126,21 +125,21 @@
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geoip/cn.srs",
-        "download_detour": "手动选择"
+        "download_detour": "📌 主要节点"
       },
       {
         "tag": "geolocation-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-cn.srs",
-        "download_detour": "手动选择"
+        "download_detour": "📌 主要节点"
       },
       {
         "tag": "geolocation-!cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "手动选择"
+        "download_detour": "📌 主要节点"
       }
     ]
   },
@@ -150,7 +149,7 @@
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
-      "external_ui_download_detour": "手动选择",
+      "external_ui_download_detour": "📌 主要节点",
       "default_mode": "rule"
     },
     "cache_file": {
