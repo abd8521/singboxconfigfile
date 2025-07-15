@@ -2,13 +2,13 @@
   "dns": {
     "servers": [
       {
-        "tag": "gwdns",
+        "tag": "google",
         "type": "https",
         "server": "8.8.8.8",
         "detour": "手动选择"
       },
       {
-        "tag": "cndns",
+        "tag": "ali",
         "type": "https",
         "server": "223.5.5.5",
         "detour": "direct"
@@ -21,9 +21,9 @@
       }
     ],
     "rules": [
-      {"clash_mode": "direct", "server": "cndns", "strategy": "prefer_ipv4"},
-      {"clash_mode": "global", "server": "gwdns"},
-      {"rule_set": "geolocation-cn", "server": "local"},
+      {"clash_mode": "direct", "server": "ali", "strategy": "prefer_ipv4"},
+      {"clash_mode": "global", "server": "google"},
+      {"rule_set": "geolocation-cn", "server": "ali"},
       {
         "type": "logical",
         "mode": "and",
