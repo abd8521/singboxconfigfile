@@ -2,13 +2,13 @@
   "dns": {
     "servers": [
       {
-        "tag": "google",
+        "tag": "gwdns",
         "type": "https",
         "server": "8.8.8.8",
         "detour": "手动选择"
       },
       {
-        "tag": "local",
+        "tag": "cndns",
         "type": "https",
         "server": "223.5.5.5",
         "detour": "direct"
