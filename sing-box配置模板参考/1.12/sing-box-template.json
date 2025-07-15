@@ -22,7 +22,7 @@
     "rules": [
       {"clash_mode": "direct", "server": "ali", "strategy": "prefer_ipv4"},
       {"clash_mode": "global", "server": "google"},
-      {"rule_set": "geolocation-cn", "server": "ali"},
+      {"rule_set": "geolocation-cn", "server": "ali", "strategy": "prefer_ipv4"},
       {
         "type": "logical",
         "mode": "and",
