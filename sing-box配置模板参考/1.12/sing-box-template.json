@@ -36,6 +36,15 @@
     ],
     "rules": [
       {
+        "clash_mode": "direct",
+        "server": "cndns",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "clash_mode": "global",
+        "server": "gwdns"
+      },
+      {
         "rule_set": "geolocation-cn",
         "server": "local"
       },
@@ -93,6 +102,14 @@
       "outbounds": ["{all}"]
     },
     {
+      "tag":"GLOBAL",
+      "type":"selector",
+      "outbounds":[ 
+        "手动选择",
+        "direct"
+      ]
+    },
+    {
       "type": "direct",
       "tag": "direct"
     }
@@ -110,16 +127,20 @@
         "timeout": "1s"
       },
       {
-        "inbound": "tun-in",
-        "action": "resolve"
-      },
-      {
         "protocol": "dns",
         "action": "hijack-dns"
       },
       {
         "ip_is_private": true,
         "outbound": "direct"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
       },
       {
         "rule_set": ["geolocation-cn"],
